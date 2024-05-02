@@ -1,4 +1,5 @@
-async function PatchProduct(id) {
+async function PatchProduct() {
+    var id = document.getElementById("IdLabelP").textContent;
     var dati = {
         'nome': document.getElementById('nomeP').value,
         'prezzo': parseInt(document.getElementById('prezzoP').value),
@@ -14,5 +15,15 @@ async function PatchProduct(id) {
         body: JSON.stringify(dati)
     });
     document.getElementById("btnAnnP").click();
-    FetchAll();
+    var CellToPatch = document.getElementById(id);
+    console.log(CellToPatch);
+    var CellMarcaToPatch = document.getElementById(id + 'marca');
+    console.log(CellMarcaToPatch);
+    CellMarcaToPatch.textContent = dati['marca'];
+    var CellNomeToPatch = document.getElementById(id + 'nome');
+    CellNomeToPatch.textContent = dati['nome'];
+    var CellPrezzoToPatch = document.getElementById(id + 'prezzo');
+    CellPrezzoToPatch.textContent = dati['prezzo'];
+    console.log(CellToPatch);
+
 }

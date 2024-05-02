@@ -14,5 +14,10 @@ async function CreateProduct() {
         body: JSON.stringify(dati)
     });
     document.getElementById("btnAnn").click();
+    document.getElementById('nome').value = "";
+    document.getElementById('prezzo').value = "";
+    document.getElementById('marca').value = "";
+
     FetchAll();
+
 }
