@@ -71,8 +71,16 @@ class Product:
             conn.commit()
             product_id = cursor.lastrowid
             conn.close()
+            new_product = {
+                'id':product_id,
+                'attributes':{
+                'marca': product_data['marca'],
+                'nome': product_data['nome'],
+                'prezzo': product_data['prezzo']
+                }
+            }
             
-            return product_data
+            return new_product
         except mysql.connector.Error as e:
             print("Errore durante la creazione del prodotto:", str(e))
 

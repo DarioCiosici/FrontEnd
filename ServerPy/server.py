@@ -70,6 +70,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             }
             product = Product.create(new_product)
             self._set_response(status_code=201)
+            self.wfile.write(product)
         except json.JSONDecodeError:
             self.send_error(400, 'Bad Request - Invalid JSON')
       
